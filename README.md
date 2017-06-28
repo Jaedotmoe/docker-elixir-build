@@ -16,7 +16,7 @@ projects.
 * Mounts `/project` volume from host.
 * Mounts `/release` volume from host.
 
-These are made as a convenience, so that running a build, with build output
+These are made as a convenience, so that running a build, with build input (source) and build output
 to the local host filesystem is easy.
 
 ## Example
