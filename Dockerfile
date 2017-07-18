@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-ENV ELIXIR_VERSION 1.4.4
+ENV ELIXIR_VERSION 1.4.5
 
 RUN apk --no-cache add erlang-dev erlang-inets \
     erlang-ssl erlang-crypto erlang-public-key erlang-asn1 erlang-sasl erlang-erl-interface \
@@ -15,14 +15,11 @@ RUN apk --no-cache add --virtual build-dependencies wget ca-certificates && \
     rm Precompiled.zip && \
     apk --no-cache del build-dependencies 
 
+RUN apk --no-cache add nodejs-npm
+
 ENV PATH $PATH:/opt/elixir-${ELIXIR_VERSION}/bin
 
 RUN mix local.hex --force
 RUN mix local.rebar --force
-
-RUN mkdir /project
-VOLUME ["/project"]
-RUN mkdir /release
-VOLUME ["/release"]
 
 CMD ["/bin/ash"]
