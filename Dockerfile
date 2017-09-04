@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-ENV ELIXIR_VERSION 1.4.5
+ENV ELIXIR_VERSION 1.5.1
 
 RUN apk --no-cache add erlang-dev erlang-inets \
     erlang-ssl erlang-crypto erlang-public-key erlang-asn1 erlang-sasl erlang-erl-interface \

@@ -4,7 +4,7 @@ This builds a Docker image that can be used as a base to build Elixir (and Erlan
 
 ## Contents
 
-* Elixir 1.4.5
+* Elixir 1.5.1
 * Erlang 19.2
 * NPM 6.11
 * `rebar`
