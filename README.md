@@ -4,8 +4,8 @@ This builds a Docker image that can be used as a base to build Elixir (and Erlan
 
 ## Contents
 
-* Elixir 1.5.1
-* Erlang 19.2
+* Elixir 1.5.2
+* Erlang 20.1
 * NPM 6.11
 * `rebar`
 * `hex`
@@ -58,7 +58,7 @@ RUN mix release --env=${MIX_ENV}
 ### Minimal run-time image
 FROM alpine:latest
 
-RUN apk --no-cache update && apk --no-cache upgrade && apk --no-cache add ncurses-libs
+RUN apk --no-cache update && apk --no-cache upgrade && apk --no-cache add ncurses-libs openssl
 
 RUN adduser -D app
 
@@ -83,7 +83,7 @@ ENV START_ERL_DATA /tmp/app/start_erl.data
 CMD ["/opt/app/bin/myapp", "foreground"]
 ```
 
-This uses [`distillery`](https://github.com/bitwalker/distillery) to build a the stand-alone release in one stage, and then copies the release artefacts from the first stage to a second stage, starting afresh from the minimal Alpine base image.
+This uses [`distillery`](https://github.com/bitwalker/distillery) to build a the stand-alone release in one stage, and then copies the release artefacts from the first stage to a second stage, starting afresh from the minimal Alpine base image. Adds additional package `openssl` to `libcrypto.so` is available at runtime, YMMV.
 
 NB the `APP_VERSION` environment var is used in the `mix.exs` above to set the version, e.g.:
 
