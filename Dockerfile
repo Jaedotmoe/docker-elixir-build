@@ -1,12 +1,9 @@
-FROM alpine:latest
+FROM bitwalker/alpine-erlang:latest
 
 ENV ELIXIR_VERSION 1.5.1
 
-RUN apk --no-cache add erlang-dev erlang-inets \
-    erlang-ssl erlang-crypto erlang-public-key erlang-asn1 erlang-sasl erlang-erl-interface \
-    erlang-syntax-tools erlang-parsetools erlang-eunit erlang-tools erlang-dialyzer \
-    erlang-hipe \
-    git make
+RUN apk --no-cache add git make
+RUN apk --no-cache add openssl
 
 RUN apk --no-cache add --virtual build-dependencies wget ca-certificates && \
     wget --no-check-certificate https://github.com/elixir-lang/elixir/releases/download/v${ELIXIR_VERSION}/Precompiled.zip && \
