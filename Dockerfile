@@ -1,6 +1,6 @@
 FROM bitwalker/alpine-erlang:latest
 
-ENV ELIXIR_VERSION 1.5.1
+ENV ELIXIR_VERSION 1.5.2
 
 RUN apk --no-cache add git make
 RUN apk --no-cache add openssl
