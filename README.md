@@ -58,7 +58,7 @@ RUN mix release --env=${MIX_ENV}
 ### Minimal run-time image
 FROM alpine:latest
 
-RUN apk --no-cache update && apk --no-cache upgrade && apk --no-cache add ncurses-libs openssl
+RUN apk --no-cache update && apk --no-cache upgrade && apk --no-cache add ncurses-libs openssl bash
 
 RUN adduser -D app
 
