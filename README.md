@@ -44,14 +44,19 @@ ENV APP_VERSION ${APP_VERSION}
 
 RUN mix deps.get
 
-COPY assets assets
 COPY lib lib
 COPY test test
 COPY config config
 COPY rel rel
 
+# Uncomment line below if you have assets in the priv dir
+# COPY priv priv
+
+# Build Phoenix assets
+COPY assets assets
 RUN cd assets && npm install && ./node_modules/.bin/brunch build --production
 RUN mix phx.digest
+
 
 RUN mix release --env=${MIX_ENV}
 
