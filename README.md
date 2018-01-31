@@ -4,12 +4,15 @@ This builds a Docker image that can be used as a base to build Elixir (and Erlan
 
 ## Contents
 
-* Elixir 1.5.2
-* Erlang 20.1
-* NPM 6.11
-* `rebar`
-* `hex`
+As of `elixir-build:2.0.2`:
+
+* Erlang 20.2.2
+* Elixir 1.5.3
+* Node 8.9.3 (npm 5.5.1)
 * `make`, `git`
+* `openssl`
+
+`hex` and `rebar` are also installed.
 
 ## A multi-stage minimal image build
 
