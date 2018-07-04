@@ -1,6 +1,6 @@
-FROM bitwalker/alpine-erlang:latest
+FROM bitwalker/alpine-erlang:21.0
 
-ENV ELIXIR_VERSION 1.6.4
+ENV ELIXIR_VERSION 1.6.6
 
 RUN apk --no-cache upgrade
 RUN apk --no-cache add git make

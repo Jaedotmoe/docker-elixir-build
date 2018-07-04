@@ -4,10 +4,10 @@ This builds a Docker image that can be used as a base to build Elixir (and Erlan
 
 ## Contents
 
-As of `elixir-build:2.1.1`:
+As of `elixir-build:2.2.0`:
 
-* Erlang 20.3.2
-* Elixir 1.6.4
+* Erlang 21.0
+* Elixir 1.6.6
 * Node 8.9.3 (npm 5.5.1)
 * `make`, `git`
 * `openssl`
@@ -32,7 +32,7 @@ end
 Then a `Dockerfile` to build a minimal run-time image for a [Phoenix](http://www.phoenixframework.org/) project may look like:
 
 ```dockerfile
-FROM nexus.in.ft.com:5000/membership/elixir-build:latest AS build
+FROM nexus.in.ft.com:5000/membership/elixir-build:2.2.0 AS build
 
 WORKDIR /build
 
@@ -88,6 +88,8 @@ RUN mkdir /tmp/app
 ENV RELEASE_MUTABLE_DIR /tmp/app
 ENV START_ERL_DATA /tmp/app/start_erl.data
 
+# Start command
+# NB 'myapp' should be replaced by your application name, as per mix.exs
 CMD ["/opt/app/bin/myapp", "foreground"]
 ```
 
