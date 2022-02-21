@@ -32,7 +32,7 @@ end
 Then a `Dockerfile` to build a minimal run-time image for a [Phoenix](http://www.phoenixframework.org/) project may look like:
 
 ```dockerfile
-FROM nexus.in.ft.com:5000/membership/elixir-build:2.2.0 AS build
+FROM ghrc.io/jaedotmoe/elixir-build:latest AS build
 
 WORKDIR /build
 
